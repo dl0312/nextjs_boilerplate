@@ -15,6 +15,9 @@
 # production
 /build
 
+# dist folder
+dist
+
 # misc
 .DS_Store
 *.pem
@@ -29,6 +32,9 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+
+# vscode
+.vscode
 
 # vercel
 .vercel
