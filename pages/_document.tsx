@@ -1,6 +1,37 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document'
+import { ServerStyleSheet } from 'styled-components'
 
-class AppDocument extends Document {
+interface IProps {
+  styleTags: React.ReactElement<{}>[]
+}
+
+class AppDocument extends Document<IProps> {
+  static async getInitialProps(ctx: DocumentContext) {
+    const sheet = new ServerStyleSheet()
+    const originalRenderPage = ctx.renderPage
+
+    try {
+      ctx.renderPage = () =>
+        originalRenderPage({
+          // eslint-disable-next-line @typescript-eslint/naming-convention
+          enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />),
+        })
+
+      const initialProps = await Document.getInitialProps(ctx)
+      return {
+        ...initialProps,
+        styles: (
+          <>
+            {initialProps.styles}
+            {sheet.getStyleElement()}
+          </>
+        ),
+      }
+    } finally {
+      sheet.seal()
+    }
+  }
+
   render() {
     return (
       <Html lang="ko">
@@ -20,19 +51,10 @@ class AppDocument extends Document {
             type="text/css"
             href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"
           />
-          {/**
-           * metadata
-           * * viewport
-           * * theme-color
-           */}
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <meta name="theme-color" content="#000000" />
-          {/**
-           * title
-           */}
-          <title>React-TypeScript-Boilerplate</title>
+          {this.props.styleTags}
         </Head>
         <body>
+          <script src="noflash.js" />
           <Main />
           <NextScript />
         </body>
