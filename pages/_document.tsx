@@ -47,8 +47,8 @@ class AppDocument extends Document<IProps> {
            * Use the following CSS rules to specify these families: font-family: 'Black Han Sans', sans-serif;
            * */}
           <link
-            rel="stylesheet"
-            type="text/css"
+            rel="preload"
+            as="font"
             href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"
           />
           {this.props.styleTags}
