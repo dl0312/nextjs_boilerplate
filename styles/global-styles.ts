@@ -17,7 +17,6 @@ export const GlobalStyle = createGlobalStyle<Theme>`
     background: ${({ mainBackground }) => mainBackground};
     color: ${({ title }) => title};
     
-    transition: color, background 0.5s ease-in-out;
     /** Responsive Design */
     ${media.giant} {
       /** Giant View */
@@ -51,6 +50,7 @@ export const GlobalStyle = createGlobalStyle<Theme>`
     &:active {
     }
   }
+
   /** animations */
   @keyframes spin {
     0% {
