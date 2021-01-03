@@ -1,16 +1,18 @@
 import ThemeToggleSwitch from 'components/ThemeToggleSwitch'
-import styled from 'styles/themed-components'
+import styled from 'styled-components'
 
 const Title = styled.div`
-  color: ${({ theme: { linkText } }) => linkText};
+  font-size: 2rem;
+  font-weight: bolder;
+  margin: 1rem;
 `
 
 function Home() {
   return (
-    <div>
-      <Title>타이틀</Title>
+    <>
+      <Title>Next.js Boilerplate</Title>
       <ThemeToggleSwitch />
-    </div>
+    </>
   )
 }
 
