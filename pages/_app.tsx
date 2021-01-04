@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 
 import { ThemeType } from 'interfaces/theme'
 import { AppProps } from 'next/dist/next-server/lib/router/router'
+import Head from 'next/head'
 import { ThemeSwitcherProvider } from 'react-css-theme-switcher'
 import { GlobalStyle } from 'styles/global-styles'
 import { themes } from 'styles/theme'
@@ -12,7 +13,9 @@ import useDarkMode from 'use-dark-mode'
 function App({ Component, pageProps }: AppProps) {
   const darkMode = useDarkMode(false)
 
+  /** For SSR mismatch */
   const [mounted, setMounted] = useState(false)
+
   useEffect(() => {
     setMounted(true)
   }, [])
@@ -32,6 +35,9 @@ function App({ Component, pageProps }: AppProps) {
 
   return (
     <>
+      <Head>
+        <title>Next.js Boilerplate</title>
+      </Head>
       <GlobalStyle {...themes[darkMode.value ? ThemeType.DARK : ThemeType.LIGHT]} />
       {mounted ? body : <div style={{ visibility: 'hidden' }}>{body}</div>}
     </>
