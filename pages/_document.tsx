@@ -1,7 +1,7 @@
 /* eslint-disable react/style-prop-object */
 /* eslint-disable react/no-unknown-property */
 import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document'
-import { description, applicationName, keywords, author, image, site, type, publishedTime } from 'public/config'
+import { description, applicationName, keywords, author, image, site, type } from 'public/config'
 import { ServerStyleSheet } from 'styled-components'
 
 interface IProps {
@@ -79,14 +79,10 @@ class AppDocument extends Document<IProps> {
           <meta property="og:image" content={image} />
           <meta property="og:description" content={description} />
           <meta property="og:site_name" content={applicationName} />
-          <meta property="article:published_time" content={publishedTime} />
-          <meta property="article:modified_time" content={new Date().toISOString()} />
-          <meta property="article:section" content="Main" />
-          <meta property="article:tag" content={keywords} />
           {this.props.styleTags}
         </Head>
         <body>
-          <script src="noflash.js" />
+          <script src="/noflash.js" />
           <Main />
           <NextScript />
         </body>

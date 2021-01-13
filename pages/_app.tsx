@@ -24,8 +24,8 @@ function App({ Component, pageProps }: AppProps) {
   }, [])
 
   const themeMap = {
-    [ThemeType.LIGHT]: 'antd.min.css',
-    [ThemeType.DARK]: 'antd.dark.css',
+    [ThemeType.LIGHT]: '/antd.min.css',
+    [ThemeType.DARK]: '/antd.dark.css',
   }
 
   const body = (
