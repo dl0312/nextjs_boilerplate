@@ -1,21 +1,31 @@
 import Footer from 'components/Footer'
 import Layout from 'components/Layout'
-import ThemeToggleSwitch from 'components/ThemeToggleSwitch'
+
 import { applicationName, description } from 'public/config'
 import styled from 'styled-components'
+import dynamic from 'next/dynamic'
+
+const ThemeToggleSwitch = dynamic(() => import('components/ThemeToggleSwitch'))
 
 const Header = styled.header`
   position: sticky;
   z-index: 1000;
-  top: 0px;
+  top: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-
+  justify-content: space-cetween;
   width: 100%;
-  padding-top: 1.5rem;
-  background: ${({ theme: { mainBackground } }) => mainBackground};
+  color: ${({
+    theme: {
+      color: { primaryText },
+    },
+  }) => primaryText};
+  background: ${({
+    theme: {
+      color: { mainBackground },
+    },
+  }) => mainBackground};
 `
 
 const HeaderTop = styled.div`
@@ -23,37 +33,46 @@ const HeaderTop = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  padding: 1rem;
+`
+
+const Title = styled.div`
+  font-size: 1.5rem;
+  font-weight: bolder;
+`
+
+const Description = styled.p`
   margin-bottom: 0.5rem;
 `
 
-const HeaderTopLeft = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`
-
-const Title = styled.h1``
-
-const Description = styled.p``
-
 const Main = styled.main`
   width: 100%;
-  margin: 1rem 0;
+  padding: 1rem;
+`
+
+const Img = styled.img`
+  width: 100%;
 `
 
 function Home() {
+  const quakka = {
+    name: 'quakka',
+    image: {
+      src: 'https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FrPjDC%2FbtqBdTykrlc%2FRFFN4LM7AVKPbJyiddqeaK%2Fimg.jpg',
+    },
+  }
   return (
     <Layout>
       <Header>
         <HeaderTop>
-          <HeaderTopLeft>
-            <Title>{applicationName}</Title>
-            <Description>{description}</Description>
-          </HeaderTopLeft>
+          <Title>{applicationName}</Title>
           <ThemeToggleSwitch />
         </HeaderTop>
       </Header>
-      <Main>Main Contents</Main>
+      <Main>
+        <Description>{description}</Description>
+        <Img src={quakka.image.src} alt={quakka.name} />
+      </Main>
       <Footer />
     </Layout>
   )

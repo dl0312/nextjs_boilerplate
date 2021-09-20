@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 
 import { faBolt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import styled from 'styles/themed-components'
+import styled from 'styled-components'
 
 const Container = styled.footer`
   width: 100%;
@@ -10,12 +10,6 @@ const Container = styled.footer`
   flex-direction: column;
   margin: 3rem 0 1.5rem;
 `
-// const Advertisement = styled.div`
-//   display: flex;
-//   flex-wrap: wrap;
-//   justify-content: center;
-//   margin: 1rem 0;
-// `
 
 const PoweredBy = styled.div`
   align-self: center;

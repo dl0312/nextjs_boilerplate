@@ -1,10 +1,10 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import reset from 'styled-reset'
 
-import { media, Theme } from './theme'
-import { createGlobalStyle } from './themed-components'
+import { media, StyledComponents, Theme } from 'styles/theme'
+import { createGlobalStyle } from 'styled-components'
 
-export const GlobalStyle = createGlobalStyle<Theme>`
+export const GlobalStyle = createGlobalStyle<StyledComponents>`
   ${reset}
   *,
   *::after,
@@ -12,10 +12,10 @@ export const GlobalStyle = createGlobalStyle<Theme>`
     box-sizing: border-box;
   }
   body{
-    font-family: 'Nanum Gothic', sans-serif; 
+    font-family: 'Nanum Gothic', sans-serif;
     font-size: 0.8rem;
-    background: ${({ mainBackground }) => mainBackground};
-    color: ${({ title }) => title};
+    background: ${({ color: { mainBackground } }) => mainBackground};
+    color: ${({ color: { title } }) => title};
     
     /** Responsive Design */
     ${media.giant} {
@@ -65,7 +65,7 @@ export const GlobalStyle = createGlobalStyle<Theme>`
     color: inherit;
     text-decoration: none !important;
     &:hover{
-        color: ${({ linkText }) => linkText};
+        color: ${({ color: { linkText } }) => linkText};
     }
   }
 

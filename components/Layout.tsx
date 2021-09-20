@@ -2,7 +2,7 @@ import React, { ReactElement, ReactNode } from 'react'
 
 import styled from 'styled-components'
 
-const Container = styled.div`
+const LayoutContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,9 +11,8 @@ const Container = styled.div`
 `
 
 const PageWrapper = styled.div`
-  max-width: 800px;
+  max-width: 60rem;
   width: 100%;
-  padding: 0 1.5rem;
   margin: 0 auto;
   min-height: 100vh;
   display: flex;
@@ -27,9 +26,9 @@ interface Props {
 
 function Layout({ children }: Props): ReactElement {
   return (
-    <Container>
+    <LayoutContainer>
       <PageWrapper>{children}</PageWrapper>
-    </Container>
+    </LayoutContainer>
   )
 }
 
