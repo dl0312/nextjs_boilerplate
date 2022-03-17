@@ -2,3 +2,4 @@
 **/*.scss.d.ts
 **/dist/**/*.js
 **/public/**/*.js
+*.js

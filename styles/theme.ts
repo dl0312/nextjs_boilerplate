@@ -111,7 +111,6 @@ export const themes: Themes = {
 }
 
 export interface StyledComponents {
-  color: Theme
   size: {
     font: {
       small: string
@@ -121,8 +120,7 @@ export interface StyledComponents {
   }
 }
 
-export const styledVariables = (darkMode: DarkMode) => ({
-  color: themes[darkMode.value ? ThemeType.DARK : ThemeType.LIGHT],
+export const theme = {
   size: {
     font: {
       small: '0.6rem',
@@ -130,7 +128,7 @@ export const styledVariables = (darkMode: DarkMode) => ({
       large: '1rem',
     },
   },
-})
+}
 
 const customMediaQuery = (maxWidth: number): string => `@media (max-width: ${maxWidth}px)`
 
