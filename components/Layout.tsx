@@ -1,32 +1,6 @@
-import { APPLICATION_NAME } from 'public/config'
 import React, { ReactElement, ReactNode } from 'react'
 
 import styled from 'styled-components'
-import Footer from './Footer'
-
-const Header = styled.header`
-  position: sticky;
-  z-index: 1000;
-  top: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-cetween;
-  width: 100%;
-`
-
-const HeaderTop = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 1rem;
-`
-
-const Title = styled.div`
-  font-size: 1.5rem;
-  font-weight: bolder;
-`
 
 import { APPLICATION_NAME } from 'public/config'
 
