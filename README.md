@@ -10,6 +10,8 @@ Best way to create the Next.js framework from scratch 👍
 
 - [Husky](https://github.com/typicode/husky)
 
+> 작동이 잘 안되면 `yarn prepare`를 해주세요.
+
 ## 📚 Pre-Installed Libraries
 
 - [Styled Components](https://www.styled-components.com/)
@@ -26,6 +28,6 @@ Best way to create the Next.js framework from scratch 👍
 - [.prettierrc.js](.prettierrc.js)
 - [.stylelintrc](.stylelintrc)
 
-# License
+## License
 
 MIT

@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -16,8 +20,11 @@
     "baseUrl": ".",
     "experimentalDecorators": true,
     "paths": {
-      "@Test/*": ["test/*"]
-    }
+      "@Test/*": [
+        "test/*"
+      ]
+    },
+    "incremental": true
   },
   "exclude": [
     "node_modules",
@@ -29,6 +36,11 @@
     "bundles",
     "coverage",
     "test"
-  ], 
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/_app/index.js"]
+  ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "pages/_app/index.js"
+  ]
 }

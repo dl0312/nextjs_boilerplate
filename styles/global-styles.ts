@@ -1,11 +1,13 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
+import { createGlobalStyle } from 'styled-components'
+// eslint-disable-next-line import/no-named-as-default
 import reset from 'styled-reset'
 
-import { media, StyledComponents, Theme } from 'styles/theme'
-import { createGlobalStyle } from 'styled-components'
+import { media, StyledComponents } from 'styles/theme'
 
-export const GlobalStyle = createGlobalStyle<StyledComponents>`
+const GlobalStyle = createGlobalStyle<StyledComponents>`
   ${reset}
+
   *,
   *::after,
   *::before {
@@ -14,8 +16,6 @@ export const GlobalStyle = createGlobalStyle<StyledComponents>`
   body{
     font-family: 'Nanum Gothic', sans-serif;
     font-size: 0.8rem;
-    background: ${({ color: { mainBackground } }) => mainBackground};
-    color: ${({ color: { title } }) => title};
     
     /** Responsive Design */
     ${media.giant} {
@@ -61,14 +61,6 @@ export const GlobalStyle = createGlobalStyle<StyledComponents>`
     cursor: pointer;
   }
 
-  a{
-    color: inherit;
-    text-decoration: none !important;
-    &:hover{
-        color: ${({ color: { linkText } }) => linkText};
-    }
-  }
-
   input, button{
     cursor: pointer;
     background-color: transparent;
@@ -96,3 +88,5 @@ export const GlobalStyle = createGlobalStyle<StyledComponents>`
     }
   }
 `
+
+export default GlobalStyle

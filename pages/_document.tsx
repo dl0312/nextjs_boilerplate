@@ -1,11 +1,21 @@
 /* eslint-disable react/style-prop-object */
 /* eslint-disable react/no-unknown-property */
 import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document'
-import { description, applicationName, keywords, author, image, site, type } from 'public/config'
 import { ServerStyleSheet } from 'styled-components'
 
+import {
+  APPLICATION_NAME,
+  AUTHOR,
+  DESCRIPTION,
+  KEYWORDS,
+  MAIN_IMAGE_URL,
+  OgType,
+  SITE_URL,
+  TwitterCard,
+} from 'public/config'
+
 interface IProps {
-  styleTags: React.ReactElement<{}>[]
+  styleTags: React.ReactElement<unknown>[]
 }
 
 class AppDocument extends Document<IProps> {
@@ -55,13 +65,14 @@ class AppDocument extends Document<IProps> {
            * * 검은고딕 - https://fonts.google.com/specimen/Black+Han+Sans
            * Use the following CSS rules to specify these families: font-family: 'Black Han Sans', sans-serif;
            * */}
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
           <link
-            rel="preload"
+            rel="stylesheet"
             as="font"
-            href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"
-          />{' '}
-          <link href="/fonts/style.css" rel="stylesheet" />
-          <link rel="shortcut icon" href="/sk2.webp" />
+            href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+          />
+          <link rel="shortcut icon" href="/favicon.ico" />
           {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
           <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_TRACKING_ID}`} />
           <script
@@ -92,7 +103,7 @@ class AppDocument extends Document<IProps> {
             `,
             }}
           />
-          <script type="text/javascript" src="//wcs.naver.net/wcslog.js" />
+          <script type="text/javascript" src="https://wcs.naver.net/wcslog.js" />
           <script
             type="text/javascript"
             dangerouslySetInnerHTML={{
@@ -105,39 +116,37 @@ class AppDocument extends Document<IProps> {
             `,
             }}
           />
-          {/* <!-- Kakao Adfit --> */}
-          <script type="text/javascript" src="https://t1.daumcdn.net/kas/static/ba.min.js" async />
           {/* <!-- Basic --> */}
-          <meta name="application-name" content={applicationName} />
-          <meta name="description" content={description} />
+          <meta name="application-name" content={APPLICATION_NAME} />
+          <meta name="description" content={DESCRIPTION} />
           <meta name="robots" content="index,follow" />
           <meta name="googlebot" content="index,follow" />
-          <meta name="author" content={author} />
-          <meta name="keywords" content={keywords} />
+          <meta name="author" content={AUTHOR} />
+          <meta name="keywords" content={KEYWORDS.join(',')} />
           {/* <!-- Schema.org markup for Google+ --> */}
-          <meta itemProp="name" content={applicationName} />
-          <meta itemProp="description" content={description} />
-          <meta itemProp="image" content={image} />
+          <meta itemProp="name" content={APPLICATION_NAME} />
+          <meta itemProp="description" content={DESCRIPTION} />
+          <meta itemProp="image" content={MAIN_IMAGE_URL} />
           {/* <!-- Twitter Card data --> */}
-          <meta name="twitter:card" content={image} />
-          <meta name="twitter:site" content={site} />
-          <meta name="twitter:title" content={applicationName} />
-          <meta name="twitter:description" content={description} />
-          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:card" content={MAIN_IMAGE_URL} />
+          <meta name="twitter:site" content={SITE_URL} />
+          <meta name="twitter:title" content={APPLICATION_NAME} />
+          <meta name="twitter:description" content={DESCRIPTION} />
+          <meta name="twitter:card" content={TwitterCard.SUMMARY_LARGE_IMAGE} />
           {/* <!-- Twitter summary card with large image must be at least 280x150px --> */}
-          <meta name="twitter:image:src" content={image} />
+          <meta name="twitter:image:src" content={MAIN_IMAGE_URL} />
           {/* <!-- Open Graph data --> */}
-          <meta property="og:title" content={applicationName} />
-          <meta property="og:type" content={type} />
+          <meta property="og:title" content={APPLICATION_NAME} />
+          <meta property="og:type" content={OgType.WEBSITE} />
           <meta data-rh="true" property="og:image:width" content="1200" />
           <meta data-rh="true" property="og:image:height" content="630" />
-          <meta property="og:url" content={site} />
-          <meta property="og:image" content={image} />
-          <meta property="og:description" content={description} />
-          <meta property="og:site_name" content={applicationName} />
+          <meta property="og:url" content={SITE_URL} />
+          <meta property="og:image" content={MAIN_IMAGE_URL} />
+          <meta property="og:description" content={DESCRIPTION} />
+          <meta property="og:site_name" content={APPLICATION_NAME} />
           <meta property="article:section" content="Main" />
           <meta name="naver-site-verification" content="61faa1835dc3ee6d39a9a14ef179cd0001613c6d" />
-          <meta property="article:tag" content={keywords} />
+          <meta property="article:tag" content={KEYWORDS.join(',')} />
           {this.props.styleTags}
         </Head>
         <body>

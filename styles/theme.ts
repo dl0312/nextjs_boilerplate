@@ -1,6 +1,3 @@
-import { ThemeType } from 'interfaces/theme'
-import { DarkMode } from 'use-dark-mode'
-
 // sizes for media queries
 const sizes = {
   giant: 1080,
@@ -8,14 +5,6 @@ const sizes = {
   tablet: 768,
   phone: 576,
 }
-
-//   export const fontSize = {
-//     smallFontSize: '9px',
-//     normalFontSize: '12px',
-//     largeFontSize: '15px',
-//   };
-
-//   export const websiteTitle = 'react-typescript-template';
 
 export interface Theme {
   mainBackground: string
@@ -111,7 +100,6 @@ export const themes: Themes = {
 }
 
 export interface StyledComponents {
-  color: Theme
   size: {
     font: {
       small: string
@@ -121,8 +109,7 @@ export interface StyledComponents {
   }
 }
 
-export const styledVariables = (darkMode: DarkMode) => ({
-  color: themes[darkMode.value ? ThemeType.DARK : ThemeType.LIGHT],
+export const theme = {
   size: {
     font: {
       small: '0.6rem',
@@ -130,7 +117,7 @@ export const styledVariables = (darkMode: DarkMode) => ({
       large: '1rem',
     },
   },
-})
+}
 
 const customMediaQuery = (maxWidth: number): string => `@media (max-width: ${maxWidth}px)`
 
