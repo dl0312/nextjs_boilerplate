@@ -1,0 +1,21 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@Test/*": ["test/*"]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    ".next",
+    "out",
+    "next.config.js",
+    "babel.config.js",
+    "bundles",
+    "coverage",
+    "test"
+  ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/_app/index.js"]
+}

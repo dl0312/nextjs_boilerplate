@@ -2,9 +2,8 @@ import { ConfigProvider } from 'antd'
 import koKR from 'antd/lib/locale/ko_KR'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
-import { ThemeProvider } from 'styled-components'
-
 import { APPLICATION_NAME } from 'public/config'
+import { ThemeProvider } from 'styled-components'
 import GlobalStyle from 'styles/global-styles'
 import { theme } from 'styles/theme'
 

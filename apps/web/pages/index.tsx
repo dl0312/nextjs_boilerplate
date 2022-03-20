@@ -1,8 +1,7 @@
-import Image from 'next/image'
-import styled from 'styled-components'
-
 import Layout from 'components/Layout'
+import Image from 'next/image'
 import { DESCRIPTION } from 'public/config'
+import styled from 'styled-components'
 
 const Description = styled.p`
   margin-bottom: 0.5rem;
