@@ -3,23 +3,26 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prepare": "husky install",
     "dev": "NODE_OPTIONS='--inspect' next dev",
+    "postbuild": "next-sitemap",
     "build": "next build",
     "start": "next start",
-    "prepare": "husky install"
+    "clean": "rm -rf node_modules package-lock.json yarn.lock .cache .next **/node_modules **/package-lock.json **/yarn.lock **/.cache **/.next"
   },
   "dependencies": {
+    "@babel/eslint-parser": "^7.17.0",
     "@fortawesome/fontawesome-svg-core": "^6.1.0",
     "@fortawesome/free-solid-svg-icons": "^6.1.0",
     "@fortawesome/react-fontawesome": "^0.1.18",
     "antd": "^4.19.2",
     "axios": "^0.26.1",
+    "babel-plugin-import": "^1.13.3",
     "next": "12.1.0",
     "qs": "^6.10.3",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "styled-components": "^5.3.3",
-    "babel-plugin-import": "^1.13.3"
+    "styled-components": "^5.3.3"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.2",
@@ -30,8 +33,6 @@
     "@types/react": "^17.0.40",
     "@types/styled-components": "^5.1.24",
     "@typescript-eslint/eslint-plugin": "^5.15.0",
-    "babel-eslint": "10.1.0",
-    "babel-jest": "^27.5.1",
     "babel-plugin-styled-components": "^2.0.6",
     "concurrently": "^7.0.0",
     "cross-env": "^7.0.2",
@@ -41,7 +42,6 @@
     "eslint-plugin-prettier": "^4.0.0",
     "husky": "^7.0.4",
     "jest": "27.5.1",
-    "jest-environment-jsdom-fourteen": "1.0.1",
     "jest-resolve": "27.5.1",
     "jest-watch-typeahead": "1.0.0",
     "lint-staged": "^12.3.7",
