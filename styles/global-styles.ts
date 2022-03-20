@@ -15,7 +15,6 @@ const GlobalStyle = createGlobalStyle<StyledComponents>`
   }
   body{
     font-family: 'Nanum Gothic', sans-serif;
-    font-size: 0.8rem;
     
     /** Responsive Design */
     ${media.giant} {
@@ -26,47 +25,9 @@ const GlobalStyle = createGlobalStyle<StyledComponents>`
     }
     ${media.tablet} {
       /** Tablet View */
-      font-size: 0.8rem;
     }
     ${media.phone} {
       /** Phone View */
-      font-size: 0.8rem;
-    }
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin-bottom: 0.5em;
-    font-weight: 500;
-  }
-
-  h1 {
-    font-size: 2rem;
-    font-weight: bolder;
-    ${media.tablet} {
-      /** Tablet View */
-      font-size: 1.5rem;
-    }
-    ${media.phone} {
-      /** Phone View */
-      font-size: 1.5rem;
-    }
-  }
-
-  label {
-    cursor: pointer;
-  }
-
-  input, button{
-    cursor: pointer;
-    background-color: transparent;
-    outline: none;
-    border: none;
-    &:active {
     }
   }
 

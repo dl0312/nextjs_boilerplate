@@ -2,15 +2,11 @@
 
 Best way to create the Next.js framework from scratch 👍
 
-## ✨ Project Feature
-
-- 🌞 Dark Mode 🌚
-
 ## 👨‍💻 Developer Experience
 
 - [Husky](https://github.com/typicode/husky)
 
-> 작동이 잘 안되면 `yarn prepare`를 해주세요.
+> `yarn prepare`, If it doesn't work well
 
 ## 📚 Pre-Installed Libraries
 
@@ -27,6 +23,14 @@ Best way to create the Next.js framework from scratch 👍
 - [.eslintrc.js](.eslintrc.js)
 - [.prettierrc.js](.prettierrc.js)
 - [.stylelintrc](.stylelintrc)
+
+## .env
+
+```
+NEXT_PUBLIC_GA_TRACKING_ID=${GA_TRACKING_ID}
+NEXT_PUBLIC_GA4_TRACKING_ID=${GA4_TRACKING_ID}
+NEXT_PUBLIC_ADSENSE_CLIENT_ID=${ADSENSE_CLIENT_ID}
+```
 
 ## License
 
