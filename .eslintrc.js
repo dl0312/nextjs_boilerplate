@@ -38,6 +38,7 @@ module.exports = {
     'react/jsx-no-target-blank': 'off',
 
     '@next/next/no-html-link-for-pages': 'off',
+    '@next/next/no-img-element': 'off',
 
     'import/no-default-export': 'off',
     'import/prefer-default-export': 'warn',

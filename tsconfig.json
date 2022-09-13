@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
+    "importHelpers": true,
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
+    "allowJs": false,
     "skipLibCheck": true,
     "strict": false,
-    "forceConsistentCasingInFileNames": false,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
@@ -15,6 +15,12 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": false,
+    "paths": {
+      "@/*": ["./*"]
+    },
     "incremental": true
-  }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }

@@ -1,7 +1,8 @@
 import React, { ReactElement, ReactNode } from 'react'
 
-import { APPLICATION_NAME } from 'public/config'
 import styled from 'styled-components'
+
+import { APPLICATION_NAME } from 'public/config'
 
 import Footer from './Footer'
 

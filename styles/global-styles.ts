@@ -2,6 +2,7 @@
 import { createGlobalStyle } from 'styled-components'
 // eslint-disable-next-line import/no-named-as-default
 import reset from 'styled-reset'
+
 import { media, StyledComponents } from 'styles/theme'
 
 const GlobalStyle = createGlobalStyle<StyledComponents>`

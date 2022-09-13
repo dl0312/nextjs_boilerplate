@@ -1,7 +1,7 @@
-import Layout from 'components/Layout'
-import Image from 'next/image'
-import { DESCRIPTION } from 'public/config'
 import styled from 'styled-components'
+
+import Layout from 'components/Layout'
+import { DESCRIPTION } from 'public/config'
 
 const Description = styled.p`
   margin-bottom: 0.5rem;
@@ -17,7 +17,7 @@ function Home() {
   return (
     <Layout>
       <Description>{DESCRIPTION}</Description>
-      <Image src={quakka.image.src} alt={quakka.name} width="300" height="300" />
+      <img src={quakka.image.src} alt={quakka.name} width="300" height="300" />
     </Layout>
   )
 }

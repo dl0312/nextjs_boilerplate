@@ -1,6 +1,8 @@
 /* eslint-disable react/style-prop-object */
 /* eslint-disable react/no-unknown-property */
 import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document'
+import { ServerStyleSheet } from 'styled-components'
+
 import {
   APPLICATION_NAME,
   AUTHOR,
@@ -11,7 +13,6 @@ import {
   SITE_URL,
   TwitterCard,
 } from 'public/config'
-import { ServerStyleSheet } from 'styled-components'
 
 interface IProps {
   styleTags: React.ReactElement<unknown>[]

@@ -1,7 +1,4 @@
 const nextConfig = {
-  images: {
-    domains: ['img1.daumcdn.net'],
-  },
   webpack(config, {}) {
     config.resolve.fallback = {
       ...config.resolve.fallback,
