@@ -5,7 +5,8 @@
       "import",
       {
         "libraryName": "antd"
-      }
+      },
+      "antd"
     ],
     [
       "styled-components",

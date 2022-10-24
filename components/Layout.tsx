@@ -1,57 +1,8 @@
 import React, { ReactElement, ReactNode } from 'react'
 
-import styled from 'styled-components'
-
-import { APPLICATION_NAME } from 'public/config'
+import { APPLICATION_NAME } from '@/config'
 
 import Footer from './Footer'
-
-const Header = styled.header`
-  position: sticky;
-  z-index: 1000;
-  top: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-cetween;
-  width: 100%;
-`
-
-const HeaderTop = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 1rem;
-`
-
-const Title = styled.div`
-  font-size: 1.5rem;
-  font-weight: bolder;
-`
-
-const LayoutContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  min-height: 100vh;
-`
-
-const PageWrapper = styled.div`
-  max-width: 60rem;
-  width: 100%;
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`
-
-const Main = styled.main`
-  width: 100%;
-  padding: 1rem;
-`
 
 interface Props {
   children: ReactNode
@@ -59,17 +10,19 @@ interface Props {
 
 function Layout({ children }: Props): ReactElement {
   return (
-    <LayoutContainer>
-      <PageWrapper>
-        <Header>
-          <HeaderTop>
-            <Title>{APPLICATION_NAME}</Title>
-          </HeaderTop>
-        </Header>
-        <Main>{children}</Main>
+    <div className="flex flex-col items-center w-full min-h-screen">
+      <div className="max-w-screen-lg w-full mx-auto my-0 min-h-screen flex flex-col items-center justify-between">
+        <div>
+          <div className="sticky z-10 top-0 flex flex-col items-center justify-between w-full">
+            <div className="flex justify-between items-center w-full p-4">
+              <div className="text-xl font-bold">{APPLICATION_NAME}</div>
+            </div>
+          </div>
+          <main className="w-full p-4 flex flex-col items-center">{children}</main>
+        </div>
         <Footer />
-      </PageWrapper>
-    </LayoutContainer>
+      </div>
+    </div>
   )
 }
 

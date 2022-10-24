@@ -1,13 +1,10 @@
-import styled from 'styled-components'
+import Image from 'next/image'
+
+import { DESCRIPTION } from '@/config'
 
 import Layout from 'components/Layout'
-import { DESCRIPTION } from 'public/config'
 
-const Description = styled.p`
-  margin-bottom: 0.5rem;
-`
-
-function Home() {
+function HomePage() {
   const quakka = {
     name: 'quakka',
     image: {
@@ -16,10 +13,10 @@ function Home() {
   }
   return (
     <Layout>
-      <Description>{DESCRIPTION}</Description>
-      <img src={quakka.image.src} alt={quakka.name} width="300" height="300" />
+      <p className="pb-2">{DESCRIPTION}</p>
+      <Image src={quakka.image.src} alt={quakka.name} width="300" height="300" />
     </Layout>
   )
 }
 
-export default Home
+export default HomePage

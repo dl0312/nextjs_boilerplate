@@ -4,10 +4,10 @@ import { AppProps } from 'next/app'
 import Head from 'next/head'
 import { ThemeProvider } from 'styled-components'
 
-import { APPLICATION_NAME } from 'public/config'
-import GlobalStyle from 'styles/global-styles'
-import { theme } from 'styles/theme'
+import { APPLICATION_NAME } from '@/config'
+import { theme } from '@/styles/theme'
 
+import '@/styles/globals.css'
 import 'antd/dist/antd.css'
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -17,7 +17,6 @@ function App({ Component, pageProps }: AppProps) {
       <Head>
         <title>{APPLICATION_NAME}</title>
       </Head>
-      <GlobalStyle {...theme} />
       <ConfigProvider locale={koKR}>
         <ThemeProvider theme={theme}>
           <Component {...pageProps} />

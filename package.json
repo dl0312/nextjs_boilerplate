@@ -24,6 +24,7 @@
     "@types/styled-components": "^5.1.24",
     "@typescript-eslint/eslint-plugin": "^5.15.0",
     "antd": "^4.23.1",
+    "autoprefixer": "^10.4.12",
     "axios": "^0.26.1",
     "babel-plugin-import": "^1.13.3",
     "babel-plugin-styled-components": "^2.0.6",
@@ -37,6 +38,7 @@
     "lint-staged": "^12.3.7",
     "next": "12.1.0",
     "next-sitemap": "^2.5.10",
+    "postcss": "^8.4.18",
     "prettier": "^2.6.0",
     "qs": "^6.10.3",
     "react": "17.0.2",
@@ -47,6 +49,7 @@
     "stylelint-config-standard": "^25.0.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-processor-styled-components": "^1.10.0",
+    "tailwindcss": "^3.2.1",
     "ts-node": "^10.7.0",
     "turbo": "latest",
     "typescript": "^4.6.2"

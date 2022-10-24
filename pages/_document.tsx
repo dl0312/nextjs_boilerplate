@@ -12,7 +12,7 @@ import {
   OgType,
   SITE_URL,
   TwitterCard,
-} from 'public/config'
+} from '@/config'
 
 interface IProps {
   styleTags: React.ReactElement<unknown>[]
@@ -33,12 +33,7 @@ class AppDocument extends Document<IProps> {
       const initialProps = await Document.getInitialProps(ctx)
       return {
         ...initialProps,
-        styles: (
-          <>
-            {initialProps.styles}
-            {sheet.getStyleElement()}
-          </>
-        ),
+        styles: [initialProps.styles, sheet.getStyleElement()],
       }
     } finally {
       sheet.seal()
