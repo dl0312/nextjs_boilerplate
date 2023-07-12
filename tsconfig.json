@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": false,
+    "strictNullChecks": true,
     "paths": {
       "@/*": ["./*"]
     },

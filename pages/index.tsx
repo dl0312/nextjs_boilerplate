@@ -1,8 +1,5 @@
-import Image from 'next/image'
-
-import { DESCRIPTION } from '@/config'
-
-import Layout from 'components/Layout'
+import Layout from '@/components/common/Layout'
+import { DESCRIPTION } from '@/constants/config'
 
 function HomePage() {
   const quakka = {
@@ -14,7 +11,7 @@ function HomePage() {
   return (
     <Layout>
       <p className="pb-2">{DESCRIPTION}</p>
-      <Image src={quakka.image.src} alt={quakka.name} width="300" height="300" />
+      <img src={quakka.image.src} alt={quakka.name} width="300" height="300" />
     </Layout>
   )
 }

@@ -1,22 +1,23 @@
 module.exports = {
-  plugins: ['@typescript-eslint', 'prettier'],
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint', 'no-relative-import-paths', 'prettier'],
   extends: ['next', 'plugin:@typescript-eslint/recommended', 'prettier'],
   env: {
     node: true,
     browser: true,
   },
   parserOptions: {
-    project: './tsconfig.json',
+    project: ['./tsconfig.json', './tsconfig.server.json'],
   },
   rules: {
     'prettier/prettier': 'error',
-
     'arrow-body-style': 'off',
     'prefer-arrow-callback': 'off',
     'no-multi-assign': 'off',
     'no-param-reassign': 'off',
     'no-continue': 'off',
-    'no-shadow': 'off',
+    'no-console': 'warn',
+    'no-shadow': 'warn',
     'array-callback-return': 'off',
     'no-case-declarations': 'off',
     'no-await-in-loop': 'off',
@@ -29,6 +30,17 @@ module.exports = {
     'prefer-destructuring': 'warn',
     'no-nested-ternary': 'off',
 
+    /** 상대 경로 import 방지 */
+    'no-relative-import-paths/no-relative-import-paths': [
+      'error',
+      {
+        allowSameFolder: true,
+        prefix: '@',
+      },
+    ],
+
+    'prettier/prettier': 'error',
+
     'react/display-name': 'warn',
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
@@ -36,12 +48,13 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
     'react/no-array-index-key': 'warn',
     'react/jsx-no-target-blank': 'off',
+    'react/no-unescaped-entities': 'off',
 
     '@next/next/no-html-link-for-pages': 'off',
     '@next/next/no-img-element': 'off',
 
     'import/no-default-export': 'off',
-    'import/prefer-default-export': 'warn',
+    'import/prefer-default-export': 'off',
     'import/no-cycle': 'off',
     'import/export': 'off',
     'import/no-named-as-default': 'warn',
@@ -88,10 +101,11 @@ module.exports = {
       },
     ],
 
+    '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/triple-slash-reference': 'warn',
     '@typescript-eslint/no-var-requires': 'warn',
     '@typescript-eslint/no-shadow': 'warn',
-    '@typescript-eslint/no-empty-interface': 'warn',
+    '@typescript-eslint/no-empty-interface': 'off',
     '@typescript-eslint/no-empty-function': 'warn',
     '@typescript-eslint/no-namespace': 'warn',
     '@typescript-eslint/no-redeclare': 'warn',
@@ -119,12 +133,12 @@ module.exports = {
       },
     ],
     '@typescript-eslint/prefer-optional-chain': 'error',
-    '@typescript-eslint/prefer-nullish-coalescing': 'error',
+    '@typescript-eslint/prefer-nullish-coalescing': 'off',
   },
   settings: {
     'import/resolver': {
       typescript: {
-        project: 'packages/*/tsconfig.json',
+        project: './tsconfig.json',
       },
     },
   },
@@ -152,7 +166,7 @@ module.exports = {
           'error',
           {
             devDependencies: true,
-            packageDir: ['./packages/client/', './'],
+            packageDir: ['./'],
           },
         ],
       },

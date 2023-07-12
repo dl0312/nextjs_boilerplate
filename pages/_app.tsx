@@ -1,14 +1,14 @@
+import { config } from '@fortawesome/fontawesome-svg-core'
 import { ConfigProvider } from 'antd'
 import koKR from 'antd/lib/locale/ko_KR'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
-import { ThemeProvider } from 'styled-components'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+config.autoAddCss = false
 
-import { APPLICATION_NAME } from '@/config'
-import { theme } from '@/styles/theme'
+import { APPLICATION_NAME } from '@/constants/config'
 
 import '@/styles/globals.css'
-import 'antd/dist/antd.css'
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 function App({ Component, pageProps }: AppProps) {
@@ -18,9 +18,7 @@ function App({ Component, pageProps }: AppProps) {
         <title>{APPLICATION_NAME}</title>
       </Head>
       <ConfigProvider locale={koKR}>
-        <ThemeProvider theme={theme}>
-          <Component {...pageProps} />
-        </ThemeProvider>
+        <Component {...pageProps} />
       </ConfigProvider>
     </>
   )

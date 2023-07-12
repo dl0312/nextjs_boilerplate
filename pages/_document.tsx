@@ -1,45 +1,13 @@
-/* eslint-disable react/style-prop-object */
-/* eslint-disable react/no-unknown-property */
-import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document'
-import { ServerStyleSheet } from 'styled-components'
+import Document, { Html, Head, Main, NextScript } from 'next/document'
 
-import {
-  APPLICATION_NAME,
-  AUTHOR,
-  DESCRIPTION,
-  KEYWORDS,
-  MAIN_IMAGE_URL,
-  OgType,
-  SITE_URL,
-  TwitterCard,
-} from '@/config'
+import { APPLICATION_NAME, AUTHOR, DESCRIPTION, KEYWORDS, MAIN_IMAGE_URL, SITE_URL } from '@/constants/config'
+import { OgType, TwitterCard } from '@/types/og'
 
 interface IProps {
   styleTags: React.ReactElement<unknown>[]
 }
 
 class AppDocument extends Document<IProps> {
-  static async getInitialProps(ctx: DocumentContext) {
-    const sheet = new ServerStyleSheet()
-    const originalRenderPage = ctx.renderPage
-
-    try {
-      ctx.renderPage = () =>
-        originalRenderPage({
-          // eslint-disable-next-line @typescript-eslint/naming-convention
-          enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />),
-        })
-
-      const initialProps = await Document.getInitialProps(ctx)
-      return {
-        ...initialProps,
-        styles: [initialProps.styles, sheet.getStyleElement()],
-      }
-    } finally {
-      sheet.seal()
-    }
-  }
-
   render() {
     return (
       <Html lang="ko">
@@ -61,7 +29,7 @@ class AppDocument extends Document<IProps> {
            * Use the following CSS rules to specify these families: font-family: 'Black Han Sans', sans-serif;
            * */}
           <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
             rel="stylesheet"
             as="font"
@@ -98,7 +66,7 @@ class AppDocument extends Document<IProps> {
             `,
             }}
           />
-          <script type="text/javascript" src="https://wcs.naver.net/wcslog.js" />
+          <script async type="text/javascript" src="https://wcs.naver.net/wcslog.js" />
           <script
             type="text/javascript"
             dangerouslySetInnerHTML={{
@@ -145,7 +113,6 @@ class AppDocument extends Document<IProps> {
           {this.props.styleTags}
         </Head>
         <body>
-          <script src="/noflash.js" />
           <Main />
           <NextScript />
         </body>

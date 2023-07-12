@@ -3,7 +3,7 @@ import React, { ReactElement } from 'react'
 import { Button, Result } from 'antd'
 import { useRouter } from 'next/router'
 
-import Layout from '@/components/Layout'
+import Layout from '@/components/common/Layout'
 
 function NotFoundPage(): ReactElement {
   const { push } = useRouter()

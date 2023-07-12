@@ -1,6 +1,6 @@
 import React, { ReactElement, ReactNode } from 'react'
 
-import { APPLICATION_NAME } from '@/config'
+import { APPLICATION_NAME } from '@/constants/config'
 
 import Footer from './Footer'
 
